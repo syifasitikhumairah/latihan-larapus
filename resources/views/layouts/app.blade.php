@@ -78,6 +78,13 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer class="fixed-bottom">
+            <center>
+                Copyright &copy Larapus Made With Love & Mineral Water
+                - {{date('Y')}}
+            </center>
+
+        </footer>
     </div>
 </body>
 </html>
