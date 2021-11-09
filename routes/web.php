@@ -25,3 +25,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('tes-admin', function(){
     return view('layouts.admin');
 });
+
+// admin route
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']],function (){
+    Route::get('/',function (){
+        return view('admin.index');
+    });
+});
