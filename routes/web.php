@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\BookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +29,12 @@ Route::get('tes-admin', function(){
 });
 
 // admin route
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'role:admin']],function (){
+Route::group(['prefix' => 'admin', 'middleware' => ['auth']],function (){
     Route::get('/',function (){
         return view('admin.index');
     });
+
+// route author dan book
+Route::resource('author', AuthorController::class);
+Route::resource('books', BookController::class);
 });
